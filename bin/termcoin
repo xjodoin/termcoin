@@ -208,7 +208,7 @@ function getTransactions(callback) {
   if (opt.mock) {
     return callback(null, tsort(mock.transactions, true));
   }
-  return client.call('listtransactions', ['*', 1000], function(err, transactions) {
+  return client.call('listtransactions', ['*', 10], function(err, transactions) {
     if (err) return callback(err);
     return callback(null, tsort(transactions, true));
   });
